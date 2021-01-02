@@ -1,0 +1,26 @@
+{
+  "name": "NEM-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-plugin-node": "^11.1.0",
+    "nodemon": "^2.0.6"
+  },
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+    
+  }
+}
