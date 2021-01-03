@@ -10,9 +10,17 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
   res.render('index')
 })
+
+
 //рендеринг create страници 
 app.get('/create', (req, res) => {
   res.render('create')
+})
+
+
+//обработчик create       страници 
+app.post('/create', (req, res) => {
+  console.log('#');
 })
 
 app.listen(port, () => {
