@@ -10,6 +10,10 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res) => {
   res.render('index')
 })
+//рендеринг create страници 
+app.get('/create', (req, res) => {
+  res.render('create')
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
