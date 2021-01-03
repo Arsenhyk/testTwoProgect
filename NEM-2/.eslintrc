@@ -19,4 +19,4 @@
         "node/prefer-promises/fs": "error",
         "no-console": 0
     }
-}
+} 
