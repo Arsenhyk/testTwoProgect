@@ -4,6 +4,9 @@ const port = 3000
 
 var bodyParser = require('body-parser')
 
+
+const arr = ['hello', 'world', 'test']
+
 //указываем  express использовать bodyParser
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -14,7 +17,7 @@ app.set('view engine', 'ejs')
 
 //рендеринг главной страници 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {arr: arr})
 })
 
 //рендеринг create страници 
@@ -24,6 +27,8 @@ app.get('/create', (req, res) => {
 
 //обработчик create страници 
 app.post('/create', (req, res) => {
+  arr.push(req.body.text)
+  res.redirect('/')
   console.log(req.body);
 })
 
