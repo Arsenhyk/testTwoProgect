@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-
+//вывод в БД
 const schema = new Schema({
     title: {
         type: String,
