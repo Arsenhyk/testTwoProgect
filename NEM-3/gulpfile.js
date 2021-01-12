@@ -1,35 +1,41 @@
-const gulp = require('gulp');
-const sass = require('gulp-sass');
+var gulp = require('gulp');
+var browserSync = require('browser-sync').create();
+var sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const cssnano = require('gulp-cssnano');
-const browserSync = require('browser-sync');
+const plumber = require('gulp-plumber');
 
-//задача gulp для scss
-gulp.task('scss', () => {
-    return gulp
-    .src('dev/scss/**/*.scss')
-    .pipe(sass())
-    .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'],{
-        cascade: true
-    }))
-    .pipe(cssnano())
-    .pipe(gulp.dest('dist/css'))
-    .pipe(browserSync.reload({stream: true }))
-})
 
-//задача gulp для browserSync
-gulp.task('browser-sync', () => {
-    browserSync({
-        server: {
-            baseDir: 'dist'
-        },
-        notify: false
-    })
-})
+// задача gulp sass
+gulp.task('sass', function(done) {
+    gulp.src('dev/scss/**/*.scss')
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(gulp.dest('dist/css'))
+        .pipe(browserSync.stream())
+        .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'],{
+            cascade: true
+        }))
+        .pipe(cssnano())
 
-//задача gulp для  default "основная"
-gulp.task('default', gulp.series('browser-sync', 'scss'), () => {
-    gulp.watch('dev/scss/**/*.scss', ['scss'])
-    gulp.watch('dist/*.html',browserSync.reload)
-})
+    done();
+});
 
+// задача gulp serve
+gulp.task('serve', function(done) {
+
+    browserSync.init({
+        server: 'dist'
+    });
+
+    gulp.watch('dev/scss/**/*.scss', gulp.series('sass'));
+    gulp.watch('dist/*.html').on('change', () => {
+      browserSync.reload();
+      done();
+    });
+  
+
+    done();
+});
+//оновная задача gulp
+gulp.task('default', gulp.series('sass', 'serve'));
