@@ -12,8 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cross-env": "^7.0.3",
     "browser-sync": "^2.26.13",
+    "cross-env": "^7.0.3",
     "eslint": "^7.17.0",
     "eslint-plugin-node": "^11.1.0",
     "gulp": "^4.0.2",
