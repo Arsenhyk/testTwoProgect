@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 //подключаем патч для подтягивания папок
 const path = require('path');
+//подключаем патч для staticAsset
+const staticAsset = require('static-asset'); 
 
 
 
@@ -13,6 +15,9 @@ var bodyParser = require('body-parser')
 
 //указываем  express использовать bodyParser
 app.use(bodyParser.urlencoded({extended: true}));
+
+//указываем  express использовать staticAsset
+app.use(staticAsset(path.join(__dirname, 'public')))
 
 //указываем  express подтягивать папки 
 app.use(express.static(path.join(__dirname, 'public')))
