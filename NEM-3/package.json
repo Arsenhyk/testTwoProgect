@@ -1,0 +1,30 @@
+{
+  "name": "nem-3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "autoprefixer": "^10.2.1",
+    "cssnano": "^4.1.10",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "express": "^4.17.1",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=6.0.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.13",
+    "gulp": "^4.0.2"
+  },
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp"
+  }
+}

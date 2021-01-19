@@ -9,9 +9,9 @@ app.listen(config.PORT, () => {
   console.log(`Example app listening at http://localhost:${config.PORT}`)
   }) 
 })
-.catch(() =>{
-  console.error('Unable to connect to database')
-  process.exit(1)
 
-})
+
+
+
+
 
